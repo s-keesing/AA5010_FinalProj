@@ -1,0 +1,72 @@
+function plot_attitude_results(t, X, sigma_BR_hist, omega_BR_hist)
+
+    % apply consistent plotting style
+    set(groot,'defaultTextInterpreter', 'latex');
+    set(groot,'defaultAxesTickLabelInterpreter', 'latex');
+    set(groot,'defaultLegendInterpreter', 'latex');
+
+    % state plots
+    plot_states_subplots(t, X(1:3,:), X(4:6,:), 'BN');
+
+    % tracking error subplots
+    plot_states_subplots(t, sigma_BR_hist, omega_BR_hist, 'BR');
+
+    % sub functions for each plot type
+    function plot_states_subplots(t, sigma, omega, frame_label)
+
+        figure;
+        set(gcf, 'Color', 'w');
+    
+        % sigma subplot
+        subplot(2, 1, 1);
+        hold on;
+        grid on;
+        box on;
+    
+        % plot states
+        plot(t, sigma(1, :), 'LineWidth', 1.8);
+        plot(t, sigma(2, :), 'LineWidth', 1.8);
+        plot(t, sigma(3, :), 'LineWidth', 1.8);
+    
+        % set labels based on frame
+        if strcmp(frame_label, 'BN')
+            ylabel('$\sigma_{B/N}$', 'FontSize', 18, 'Interpreter', 'latex');
+            title('Attitude States', 'FontSize', 20, 'Interpreter', 'latex');
+            legend({'$\sigma_1$', '$\sigma_2$', '$\sigma_3$'}, 'Location', 'best', 'Interpreter', 'latex');
+        else
+            ylabel('$\sigma_{B/R}$', 'FontSize', 18, 'Interpreter', 'latex');
+            title('Tracking Errors', 'FontSize', 20, 'Interpreter', 'latex');
+            legend({'$\sigma_{e1}$', '$\sigma_{e2}$', '$\sigma_{e3}$'}, 'Location', 'best', 'Interpreter', 'latex');
+        end
+    
+        set(gca, 'FontSize', 14);
+
+        % omega subplot
+        subplot(2, 1, 2);
+        hold on;
+        grid on;
+        box on;
+    
+        % convert to degrees for readability
+        omega_deg = rad2deg(omega);
+    
+        % plot states
+        plot(t, omega_deg(1, :), 'LineWidth', 1.8);
+        plot(t, omega_deg(2, :), 'LineWidth', 1.8);
+        plot(t, omega_deg(3, :), 'LineWidth', 1.8);
+    
+        xlabel('Time (s)', 'FontSize', 18, 'Interpreter', 'latex');
+    
+        % set labels based on frames
+        if strcmp(frame_label, 'BN')
+            ylabel('$\omega_{B/N}$ (deg/s)', 'FontSize', 18, 'Interpreter', 'latex');
+            legend({'$\omega_1$', '$\omega_2$', '$\omega_3$'}, 'Location', 'best', 'Interpreter', 'latex');
+        else
+            ylabel('$\omega_{B/R}$ (deg/s)', 'FontSize', 18, 'Interpreter', 'latex');
+            legend({'$\omega_{e1}$', '$\omega_{e2}$', '$\omega_{e3}$'}, 'Location', 'best', 'Interpreter', 'latex');
+        end
+    
+        set(gca, 'FontSize', 14);
+    end
+
+end
