@@ -31,24 +31,22 @@ The implementation includes orbit modeling, reference frame generation, nonlinea
 ## Repo Structure
 
 ```
-/src
-    mission_simulation.m     % Runs full mission scenario
-    RK4.m                    % RK4 propagation with MRP shadow switching
-    tracking_error.m         % Computes attitude error states
-    hill2inertial.m          % Computes inertial position and velocity vectors for a given spacecraft
-    inertial2sunpointing.m   % Generates DCM rotating between sun-pointing frame and inertial frame
-    Rc2dcm.m                 % Generates DCM rotating between GMO-pointing frame and inertial frame
-    Rn2dcm.m                 % Generates DCM rotating between nadir-pointing frame and inertial frame
-    lmo2dcm.m                % Generates DCM rotating between inertial frame and LMO-centered Hill frame
-    RcNomega.m               % Computes angular velocity between GMO-pointing frame and inertial frame
-    RnNomega.m               % Computes angular velocity between nadir-pointing frame and inertial frame
-    attitude_integration.m   % Demonstrates integration of attitude states over time for arbitrary initial state
-    sun_pointing_control.m   % Simulates attitude control from initial state to sun-pointing mode
-    gmo_pointing_control.m   % Simulates attitude control from initial state to GMO-pointing mode
-    nadir_pointing_control.m % Simulates attitude control from initial state to nadir-pointing mode
-    control_law.m            % Computes control torque
-    plot_attitude_results.m  % Constructs subplots of attitude states and tracking error over time
-
+mission_simulation.m     % Runs full mission scenario
+RK4.m                    % RK4 propagation with MRP shadow switching
+tracking_error.m         % Computes attitude error states
+hill2inertial.m          % Computes inertial position and velocity vectors for a given spacecraft
+inertial2sunpointing.m   % Generates DCM rotating between sun-pointing frame and inertial frame
+Rc2dcm.m                 % Generates DCM rotating between GMO-pointing frame and inertial frame
+Rn2dcm.m                 % Generates DCM rotating between nadir-pointing frame and inertial frame
+lmo2dcm.m                % Generates DCM rotating between inertial frame and LMO-centered Hill frame
+RcNomega.m               % Computes angular velocity between GMO-pointing frame and inertial frame
+RnNomega.m               % Computes angular velocity between nadir-pointing frame and inertial frame
+attitude_integration.m   % Demonstrates integration of attitude states over time for arbitrary initial state
+sun_pointing_control.m   % Simulates attitude control from initial state to sun-pointing mode
+gmo_pointing_control.m   % Simulates attitude control from initial state to GMO-pointing mode
+nadir_pointing_control.m % Simulates attitude control from initial state to nadir-pointing mode
+control_law.m            % Computes control torque
+plot_attitude_results.m  % Constructs subplots of attitude states and tracking error over time
 README.md
 ```
 
