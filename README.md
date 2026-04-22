@@ -80,7 +80,7 @@ README.md
 
 ## Control Design
 
-The spacecraft uses a proportional-derivative (PD) feedback control law based on attitude and angular velocity tracking error. Gains are selected using a linearized approximation of the error dynamics to meet the following design requirements:
+The spacecraft uses a proportional-derivative feedback control law based on attitude and angular velocity tracking error. Gains are selected using a linearized approximation of the error dynamics to meet the following design requirements:
 
 * Maximum settling time: 120 seconds
 * Critically damped or underdamped response
@@ -102,8 +102,8 @@ The spacecraft uses a proportional-derivative (PD) feedback control law based on
 
 The simulation produces:
 
-* Time histories of attitude (MRPs) and angular velocity
-* Tracking error relative to active reference frame
+* Time histories of attitude and angular velocity states
+* Tracking error relative to reference frame
 * Mission mode transitions
 * Control torque profiles
 
@@ -115,8 +115,3 @@ These outputs correspond directly to the figures presented in the project report
 
 Senna Keesing
 
----
-
-## Notes
-
-This code was developed for academic purposes as part of an aerospace engineering course project. It is intended to demonstrate fundamental concepts in spacecraft attitude dynamics and control rather than serve as flight-ready software.
